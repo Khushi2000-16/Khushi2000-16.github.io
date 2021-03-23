@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% include 'main/nav.html' %}
+<div class="container">
+    <h1 class="center-align">Projects</h1>
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                  <img src="https://materializecss.com/images/sample-1.jpg">
+                  <span class="card-title">Here are some of my projects</span>
+                  <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                  <p>Hope you like my projects </p>
+                </div>
+              </div>
+                    
+        </div>
+        <div class="col s12 m4">
+            <ul class="collapsible">
+              {% for icon ,name, about in projects %}
+                <li>
+                  <div class="collapsible-header"><i class="material-icons">{{icon}}</i>{{name}}</div>
+                  <div class="collapsible-body"><span>{{about}}</span></div>
+                </li>
+              {%endfor%}
+              </ul>
+        </div>
+    </div>
+</div>
+{%endblock%}
+{% block script %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems);
+  });
+    </script>
+{%endblock%}
